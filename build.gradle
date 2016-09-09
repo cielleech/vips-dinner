@@ -1,0 +1,16 @@
+apply plugin: 'scala'
+apply plugin: 'idea'
+
+repositories {
+  maven{
+    url "http://uk.maven.org/maven2"
+  }
+  mavenCentral()
+  mavenLocal()
+}
+
+dependencies {
+  compile 'org.scala-lang:scala-library:2.11.8'
+  compile 'mysql:mysql-connector-java:5.1.39'
+  testCompile 'junit:junit:4.12'
+}
