@@ -2,7 +2,6 @@ package com.vips.mobile.dinner.common
 
 import java.sql.DriverManager
 
-import com.vips.mobile.dinner.util.JsonUtils
 import org.junit.Test
 
 class MysqlTests {
