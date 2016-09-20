@@ -5,7 +5,7 @@ import org.hibernate.criterion.DetachedCriteria
 /**
   * Created by cielleech on 16/9/14.
   */
-trait GenericDao[T, PK >: Serializable] {
+trait GenericDao[T >: Null, PK <: java.io.Serializable] {
   /**
     * Generic method used to get all objects of a particular type. This
     * is the same as lookup up all rows in a table.
@@ -23,7 +23,7 @@ trait GenericDao[T, PK >: Serializable] {
     */
   def getAllDistinct: List[T]
 
-  def search[E](searchQuery: String): List[E]
+  def search[E](searchQuery: String, clz: Class[E], values: Object*): List[E]
 
   def getByDetachedCriteria(detachedCriteria: DetachedCriteria): T
 
@@ -48,82 +48,125 @@ trait GenericDao[T, PK >: Serializable] {
     * @param id the id of the entity
     * @return - true if it exists, false if it doesn't
     */
-  def exists (id: PK): Boolean
-}
+  def exists(id: PK): Boolean
 
-//
-///**
-//* Checks for existence of an object of type T using the id arg.
-//* @param id the id of the entity
-//* @return - true if it exists, false if it doesn't
-//*/
-//boolean exists(PK id);
-//
-///**
-//* Generic method to save an object - handles both update and insert.
-//* @param object the object to save
-//* @return the persisted object
-//*/
-//PK save(T object);
-//
-//void saveOrUpdate(T object);
-//
-//List<PK> saveAll(List<T> objectList);
-//
-//void update(T object);
-//
-///**
-//* Generic method to delete an object
-//* @param object the object to remove
-//*/
-//void remove(T object);
-//
-///**
-//* Generic method to delete an object
-//* @param id the identifier (primary key) of the object to remove
-//*/
-//void remove(PK id);
-//
-///**
-//* Find a list of records by using a named query
-//* @param queryName query name of the named query
-//* @param queryParams a map of the query names and the values
-//* @return a list of the records found
-//*/
-//List<T> findByNamedQuery(String queryName, Map<String, Object> queryParams);
-//
-//List<T> findByPage(final String hql, final int offset, final int pageSize);
-///**
-//* find a list with condition params
-//* @param hql
-//* @param params
-//* @return
-//*/
-//List<T> find(String hql, Map<String, Object> params);
-//
-//void evict(T object);
-//
-//<E extends BaseEntity> List<E> updateList(List<E> oldList, List<E> newList);
-//
-///**
-//* Generic method to regenerate full text index of the persistent class T
-//*/
-////    void reindex();
-//
-///**
-//* Generic method to regenerate full text index of all indexed classes
-//* @param async true to perform the reindexing asynchronously
-//*/
-////    void reindexAll(boolean async);
-//
-//public List<T> sqlQuery(final String sql, final Object... values);
-//
-//public List<?> sqlExec(final String sql, final Object... values);
-//
-//public <E> List<E> sqlQuery(final Class<E> clz, final String sql, final Object... values);
-//
-//public int executeSqlUpdate(final String sql, final Object... values);
-//
-//public int executeUpdate(final String hql, final Map<String, Object> params);
-//
-//}
+  /**
+    *
+    * @param obj
+    * @return
+    */
+  def save(obj: T): PK
+
+  /**
+    *
+    * @param obj
+    */
+  def saveOrUpdate(obj: T): Unit
+
+  /**
+    *
+    * @param objList
+    * @return
+    */
+  def saveAll(objList: List[T]): List[PK]
+
+  /**
+    *
+    * @param obj
+    */
+  def update(obj: T): Unit
+
+  /**
+    *
+    * @param obj
+    */
+  def remove(obj: T): Unit
+
+  /**
+    *
+    * @param id
+    */
+  def remove(id: PK): Unit
+
+  /**
+    *
+    * @param queryName
+    * @param queryParams
+    * @return
+    */
+  def findByNamedQuery(queryName: String, queryParams: Map[String, Object]): List[T]
+
+  /**
+    *
+    * @param hql
+    * @param offset
+    * @param pageSize
+    * @return
+    */
+  def findByPage(hql: String, offset: Int, pageSize: Int): List[T]
+
+  /**
+    *
+    * @param hql
+    * @param params
+    * @return
+    */
+  def find(hql: String, params: Map[String, Object]): List[T]
+
+  /**
+    *
+    * @param obj
+    */
+  def evict(obj: T): Unit
+
+  /**
+    *
+    * @param oldList
+    * @param newList
+    * @tparam E
+    * @return
+    */
+  def updateList[E](oldList: List[E], newList: List[E]): List[E]
+
+  /**
+    *
+    * @param sql
+    * @param values
+    * @return
+    */
+  def sqlQuery(sql: String, values: Object*): List[T]
+
+  /**
+    *
+    * @param sql
+    * @param values
+    * @return
+    */
+  def sqlExec(sql: String, values: Object*): List[_]
+
+  /**
+    *
+    * @param clz
+    * @param sql
+    * @param values
+    * @tparam E
+    * @return
+    */
+  def sqlQuery[E](clz: Class[E], sql: String, values: Object*): List[E]
+
+  /**
+    *
+    * @param sql
+    * @param values
+    * @return
+    */
+  def executeSqlUpdate(sql: String, values: Object*): Int
+
+  /**
+    *
+    * @param hql
+    * @param params
+    * @return
+    */
+  def executeUpdate(hql: String, params: Map[String, Object]): Int
+}
