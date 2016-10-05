@@ -1,5 +1,11 @@
-build/*
-.idea/*
-.gradle/*
-classes/*
+build/
+bin/
+.idea/
+.gradle/
+classes/
 .DS_Store
+.cache-main
+.cache-tests
+.classpath
+.project
+.settings/
