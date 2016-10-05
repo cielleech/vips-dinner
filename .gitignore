@@ -1,2 +1,10 @@
 build/*
 .idea/*
+/.gradle/
+/build/
+/bin/
+.cache-main
+.cache-tests
+.classpath
+.project
+.settings/
