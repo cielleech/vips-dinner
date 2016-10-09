@@ -13,14 +13,36 @@ pageEncoding="UTF-8" %>
 <html>
   <head>
     <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <script type="text/javascript" src="${base}/assets/vue/vue.min.js"></script>
     <script type="text/javascript" src="${base}/assets/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="${base}/assets/bootstrap/css/bootstrap.min.css"/>
   </head>
   <body>
-    <div class="row">
-      <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+    <div class="alert"><button class="close" type="button" data-dismiss="alert">X</button></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+        <div class="col-md-1">col-md-1</div>
+      </div>
     </div>
+    <button class="btn btn-warning" >test</button>
+<!--     <div class="container"> -->
+      <div class="row">
+        <div class="col-lg-4" style="background:red;">col-md-8</div>
+        <div class="col-lg-4 col-md-offset-4" style="background:green;">col-md-4</div>
+      </div>
+<!--     </div> -->
     <div class="container">
       <ul>
         <li>1</li>
@@ -28,6 +50,12 @@ pageEncoding="UTF-8" %>
         <li>3</li>
       </ul>
     </div>
+    <table class="table">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+    </table>
     <form class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="exampleInputEmail2">Email address</label>
@@ -54,18 +82,18 @@ pageEncoding="UTF-8" %>
       {{ message }}
     </div>
     <script type="text/javascript">
-      //      var Calc = function() {};
-      //      Calc.prototype.add = function(a, b) {
-        //        return a + b;
-        //      };
-        //      var cal = new Calc();
-        //      alert(cal.add(1, 2));
-        new Vue({
-          el: '#app',
-          data: {
-            message: 'Hello world vue.js'
-          }
-        })
-      </script>
-    </body>
-  </html>
+      var Calc = function() {};
+      Calc.prototype.add = function(a, b) {
+        return a + b;
+      };
+      var cal = new Calc();
+      alert(cal.add(1, 2));
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello world vue.js'
+        }
+      })
+    </script>
+  </body>
+</html>
