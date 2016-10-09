@@ -37,12 +37,12 @@ pageEncoding="UTF-8" %>
       </div>
     </div>
     <button class="btn btn-warning" >test</button>
-<!--     <div class="container"> -->
+    <!--     <div class="container"> -->
       <div class="row">
         <div class="col-lg-4" style="background:red;">col-md-8</div>
         <div class="col-lg-4 col-md-offset-4" style="background:green;">col-md-4</div>
       </div>
-<!--     </div> -->
+      <!--     </div> -->
     <div class="container">
       <ul>
         <li>1</li>
