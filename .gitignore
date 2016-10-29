@@ -1,8 +1,9 @@
-build/*
-.idea/*
-/.gradle/
-/build/
-/bin/
+build/
+bin/
+.idea/
+.gradle/
+classes/
+.DS_Store
 .cache-main
 .cache-tests
 .classpath

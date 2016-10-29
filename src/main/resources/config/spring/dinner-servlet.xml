@@ -40,7 +40,5 @@
     </bean>
 
     <mvn:resources mapping="/assets/**" location="/assets/" />
-
-    <!--<mvc:default-servlet-handler /> -->
 </beans>
 
