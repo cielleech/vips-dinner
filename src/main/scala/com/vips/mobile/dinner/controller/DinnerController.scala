@@ -13,12 +13,15 @@ import org.springframework.web.servlet.ModelAndView
   */
 @RestController
 class DinnerController {
-//  @Autowired
-//  private var template: StringRedisTemplate = _
 
   @RequestMapping(value = Array("/index"), method = Array(RequestMethod.GET))
   def index(request: HttpServletRequest): ModelAndView = {
     new ModelAndView("index")
+  }
+  
+  @RequestMapping(value = Array("/vue"), method = Array(RequestMethod.GET))
+  def vue(request: HttpServletRequest): ModelAndView = {
+    new ModelAndView("vue")
   }
 }
 

@@ -5,6 +5,6 @@ package com.vips.mobile.dinner
   */
 object AppMain {
   def main(args: Array[String]): Unit = {
-    println("hello dinner")
+
   }
 }

@@ -40,24 +40,5 @@
     </bean>
 
     <mvn:resources mapping="/assets/**" location="/assets/" />
-
-    <bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <!-- Only for non-changeable configuration, regardless of environment -->
-                <value>classpath:env-conf.properties</value>
-
-                <!-- Environment related configuration -->
-                <!--<value>#{T(com.vip.mobile.moc.infra.Configurer).getEnvConf('com.vip.mip.server.config', 'com.vipshop.mobile.env')}</value>-->
-            </list>
-        </property>
-    </bean>
-
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="systemPropertiesMode" value="2" />
-        <property name="properties" ref="properties" />
-    </bean>
-
-    <!--<mvc:default-servlet-handler /> -->
 </beans>
 
