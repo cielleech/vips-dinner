@@ -23,6 +23,11 @@ class DinnerController {
   def vue(request: HttpServletRequest): ModelAndView = {
     new ModelAndView("vue")
   }
+  
+  @RequestMapping(value = Array("bootstrap"), method = Array(RequestMethod.GET))
+  def bootstrap(request: HttpServletRequest): ModelAndView = {
+    new ModelAndView("bootstrap")
+  }
 }
 
 /**

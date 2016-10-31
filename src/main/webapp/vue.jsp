@@ -6,31 +6,38 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <title>vue test</title>
+    <link rel="stylesheet" type="text/css" href="${base}/assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="${base}/assets/bootstrap/css/bootstrap-table.css" />
+    <link rel="stylesheet" type="text/css" href="${base}/assets/bootstrap/css/bootstrap-editable.css" />
     <script src="${base}/assets/vue/vue.min.js" type="text/javascript"></script>
     <script src="${base}/assets/vue/vue-resource.min.js" type="text/javascript"></script>
+    <script src="${base}/assets/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="${base}/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="${base}/assets/bootstrap/js/bootstrap-table.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="${base}/assets/bootstrap/css/bootstrap-table.css" />
+    <script src="${base}/assets/bootstrap/js/bootstrap-editable.js" type="text/javascript"></script>
+    <script src="${base}/assets/bootstrap/js/bootstrap-table-editable.js" type="text/javascript"></script>
+    <script src="${base}/assets/bootstrap/js/bootstrap-table-zh-CN.js" type="text/javascript"></script>
   </head>
   <body>
-    <table data-toggle="table">
-      <thead>
-        <tr>
-          <th>Item ID</th>
-          <th>Item Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-        </tr>
-      </tbody>
+    <table id="table"
+           data-toggle="table"
+           data-height="460"
+           data-pagination="true"
+           data-url="${base}/assets/data.json">
     </table>
     <div id="app">
       <h1>{{ message }}</h1>
     </div>
     <script type="text/javascript">
+     $('#table').bootstrapTable({
+      search: true,
+      columns:[
+        { field: 'id', title: 'ID', align: 'center'},
+        { field: 'name', title: 'Name', sortable: true, editable: true, align: 'center'},
+        { field: 'tea', title: 'tea', sortable: true, editable: true, align: 'center'}
+      ]
+    });
+
     new Vue({
       el: '#app',
       data: {
