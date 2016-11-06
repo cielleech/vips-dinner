@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-pageEncoding="UTF-8"%>
+	 pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="base" value="${pageContext.request.contextPath}" />
@@ -13,24 +13,24 @@ pageEncoding="UTF-8"%>
   <body>
     <h1>hello</h1>
     <table class="table">
-    	<thead>
-    	<tr>
-    		<th>1234</th>
-    		<th>1234</th>
-    		<th>1234</th>
-    		<th>1234</th>
-    		<th>1234</th>
-    	</tr>
-    	</thead>
-    	<tbody>
-    	  <tr>
-    	  <td>134</td>
-    	  <td>134</td>
-    	  <td>fdsadf</td>
-    	  <td>adfas</td>
-    	  <td>adfdas</td>
-    	  </tr>
-    	</tbody>
+      <thead>
+	<tr>
+	  <th>1234</th>
+	  <th>1234</th>
+	  <th>1234</th>
+	  <th>1234</th>
+	  <th>1234</th>
+	</tr>
+      </thead>
+      <tbody>
+	<tr>
+	  <td>134</td>
+	  <td>134</td>
+	  <td>fdsadf</td>
+	  <td>adfas</td>
+	  <td>adfdas</td>
+	</tr>
+      </tbody>
     </table>
   </body>
 </html>
